@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+// User Backend
 Route::get('/admin/user/index',[UserController::class, 'index'])->name('u.index');
+
+//Category Backend
+Route::get('admin/category/index',[CategoryController::class, 'index'])->name('c.index');
+Route::get('admin/category/create',[CategoryController::class, 'create'])->name('c.create');
+
+//Product Backend
+Route::get('admin/product/index',[ProductController::class, 'index'])->name('p.index');
+Route::get('admin/product/create',[ProductController::class, 'create'])->name('p.create');
+
 
 require __DIR__.'/auth.php';

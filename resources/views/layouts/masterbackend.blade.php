@@ -20,8 +20,7 @@
   </head>
   <body>
     <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-      </div>
+      
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -96,7 +95,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="{{ route('dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -108,13 +107,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('c.index') }}">
                 <span class="menu-title">Category</span>
                 <i class="mdi mdi-checkbox-multiple-blank-outline menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('p.index') }}">
                 <span class="menu-title">Product</span>
                 <i class="mdi mdi-cart menu-icon"></i>
               </a>
@@ -124,7 +123,11 @@
         </nav>
         <!-- partial -->
         <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
           @yield('text')
+            </div>
+          </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
