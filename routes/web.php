@@ -31,11 +31,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 // User Backend
-Route::get('/admin/user/index',[UserController::class, 'index'])->name('u.index');
+Route::get('admin/user/index',[UserController::class, 'index'])->name('u.index');
 
 //Category Backend
 Route::get('admin/category/index',[CategoryController::class, 'index'])->name('c.index');
 Route::get('admin/category/create',[CategoryController::class, 'create'])->name('c.create');
+Route::post('admin/category/insert',[CategoryController::class, 'insert']);
+Route::get('admin/category/edit/{id}',[CategoryController::class, 'edit']);
+Route::post('admin/category/update/{id}',[CategoryController::class,'update']);
+Route::get('admin/category/delete/{id}',[CategoryController::class, 'delete']);
+
+
 
 //Product Backend
 Route::get('admin/product/index',[ProductController::class, 'index'])->name('p.index');

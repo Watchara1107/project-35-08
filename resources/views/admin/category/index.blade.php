@@ -18,16 +18,18 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($category as $cat)
             <tr>
-              <td>Jacob</td>
-              <td>53275531</td>
-              <td>12 May 2017</td>
-              <td>12 May 2017</td>
+              <td>{{ $cat->category_id }}</td>
+              <td>{{ $cat->name }}</td>
+              <td>{{ $cat->created_at }}</td>
+              <td>{{ $cat->updated_at }}</td>
               <td>
-                <a href="" class="btn btn-warning"><i class="mdi mdi-border-color"></i></a>
-                <a href="" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                <a href="{{ url('admin/category/edit/'.$cat->category_id) }}" class="btn btn-warning"><i class="mdi mdi-border-color"></i></a>
+                <a href="{{ url('admin/category/delete/'.$cat->category_id) }}" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
               </td>
             </tr>
+            @endforeach
 
           </tbody>
         </table>

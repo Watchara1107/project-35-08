@@ -3,7 +3,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">ผู่ใช้งานระบบ</h4>
+        <h4 class="card-title">ผู้ใช้งานระบบ</h4>
         <table class="table">
           <thead>
             <tr>
@@ -15,13 +15,15 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($user as $u)
             <tr>
-              <td>Jacob</td>
-              <td>53275531</td>
-              <td>12 May 2017</td>
-              <td>12 May 2017</td>
-              <td><label class="badge badge-danger">Pending</label></td>
+              <td>{{ $u->id }}</td>
+              <td>{{ $u->name }}</td>
+              <td>{{ $u->email }}</td>
+              <td>{{ $u->created_at }}</td>
+              <td>{{ $u->updated_at }}</td>
             </tr>
+            @endforeach
 
           </tbody>
         </table>
