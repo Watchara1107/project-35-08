@@ -19,6 +19,7 @@
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/logo.png')}}" />
   </head>
   <body>
+    @include('sweetalert::alert')
     <div class="container-scroller">
       
       <!-- partial:partials/_navbar.html -->

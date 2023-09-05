@@ -18,9 +18,19 @@ class CategoryController extends Controller
     }
 
     public function insert(Request $request){
+        $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ],
+    [
+        'name.required' => "กรุณากรอกข้อมูลประเภทสินค้า",
+        'name.unique' => "มีชื่อประเภทสินค้านี้ในฐานข้อมูลแล้ว",
+        'name.max' => "กรอกข้อมูลได้สูงสุด 255 ตัวอักษร"
+    ]);
+
         $category = new Category();
         $category->name = $request->name;
         $category->save();
+        toast('บันทึกข้อมูลสำเร็จ','success');
         return redirect('admin/category/index');
     }
 
@@ -33,12 +43,14 @@ class CategoryController extends Controller
         $category = Category::find($category_id);
         $category->name = $request->name;
         $category->update();
+        toast('แก้ไขข้อมูลสำเร็จ','success');
         return redirect('admin/category/index');
     }
 
     public function delete($category_id){
         $category = Category::find($category_id);
         $category->delete();
+        toast('ลบข้อมูลสำเร็จ','success');
         return redirect('admin/category/index');
     }
 
